@@ -1,18 +1,21 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
+import vercel from '@astrojs/vercel/serverless';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  devToolbar: {
-      enabled: false
+    devToolbar: {
+        enabled: false
     },
-    site: 'https://anuncia-t.com', // Cambia esto al dominio de tu sitio
-  vite: {
-    ssr: {
-      external: ['@11ty/eleventy-img', 'svgo']
-    }
-  },
-  integrations: [tailwind()]
+    vite: {
+        ssr: {
+            external: ['@11ty/eleventy-img', 'svgo']
+        }
+    },
+    output: 'server',
+    adapter: vercel({
+        webAnalytics: { enabled: true }
+    }),
+    integrations: [tailwind()]
 });
