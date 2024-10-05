@@ -1,0 +1,61 @@
+---
+// Añade estas variables para la ubicación de la empresa
+
+const empresaNombre = "Anuncia-T";
+const empresaDireccion = "Av. Mariscal Sucre y Av. Carlos Bonilla - Conj. Rincon del Sol - Casa Nº56";
+const empresaLatitud = -0.2881371770029006; // Reemplaza con la latitud real de tu empresa
+const empresaLongitud = -78.55719280959036; // Reemplaza con la longitud real de tu empresa
+
+/*-0.2881371770029006, -78.55719280959036*/
+---
+
+<div class="card flex flex-col pt-20 mb-10 mx-4 md:mx-12 xl:mx-10 2xl:mx-24 md:pt-24 md:mb-14 justify-center" id="contactUs">
+        <p class="text-center text-4xl md:text-5xl xl:text-6xl mx-4 mb-7 dark:text-white transition duration-700 ease-in-out font-black">
+            UBICACIÓN
+        </p>
+        <div class="mx-4 flex flex-col justify-around text-center">  
+          <p class="mb-7 text-slate-900 text-lg md:text-2xl dark:text-white font-semibold transition duration-700 ease-in-out">{empresaDireccion}</p>
+            <div class="basis-2/4 text-white text-center p-1 bg-slate-900 dark:bg-white mx-3 rounded-xl transition duration-700 ease-in-out">
+              <div id="map" class="h-64 rounded-lg shadow-md"></div>
+            </div>
+        </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&family=Bebas+Neue&family=Dela+Gothic+One&family=Enriqueta:wght@400;500;600;700&family=Roboto+Slab:wght@100..900&family=SUSE:wght@100..800&display=swap');
+    
+    .card{
+        font-family: "SUSE", sans-serif;
+        letter-spacing: 2px;
+    }
+    
+</style>
+
+<script define:vars={{ empresaLatitud, empresaLongitud, empresaNombre }}>
+  // Carga el mapa de OpenStreetMap
+  function loadMap() {
+    const map = L.map('map').setView([empresaLatitud, empresaLongitud], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    L.marker([empresaLatitud, empresaLongitud]).addTo(map)
+      .bindPopup(empresaNombre)
+      .openPopup();
+  }
+
+  // Carga el script de Leaflet y luego inicializa el mapa
+  function loadLeaflet() {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css';
+    document.head.appendChild(link);
+
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js';
+    script.onload = loadMap;
+    document.body.appendChild(script);
+  }
+
+  // Ejecuta la función cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', loadLeaflet);
+</script>
