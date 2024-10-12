@@ -1,9 +1,52 @@
-<footer class="bg-slate-100 dark:bg-slate-800 ">
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-slate-100 dark:bg-slate-800">
     <div class="flex flex-col divide-y divide-slate-400 px-10 py-5 text-center">
-        <div class="pb-4 dark:text-white transition duration-700 ease-in-out">© 2025 Anuncia-t Todos los derechos reservados</div>
-        <div class="flex justify-center pt-4">
-            <a href="">
-                <img src="icons8-facebook (2).svg" alt="facebook-icon" class="w-8 mx-2 dark:hidden">
+        <div class="flex flex-wrap justify-between pt-2 pb-6">
+            <div class="w-full md:w-1/4 mb-6 md:mb-0 text-black dark:text-white transition duration-700 ease-in-out">
+                <img src="logo-black.svg" alt="logo" class="w-20 md:w-16 dark:hidden" />
+                <img src="logo-white.svg" alt="logo" class="w-20 md:w-16 hidden dark:block" />
+              <p class="mt-5 text-left">Transformando vehículos en oportunidades publicitarias.</p>
+            </div>
+            <div class="w-full md:w-1/4 mb-6 md:mb-0 text-black dark:text-white transition duration-700 ease-in-out">
+              <h3 class="text-lg font-semibold mb-4 text-left">Enlaces rápidos</h3>
+              <ul class="space-y-2 text-left">
+                <li><a href="#home" class=" dark:hover:text-slate-400 hover:text-blue-700">Inicio</a></li>
+                <li><a href="#servicio" class=" dark:hover:text-slate-400 hover:text-red-700">Servicios</a></li>
+                <li><a href="#sobreNosotros" class=" dark:hover:text-slate-400 hover:text-blue-700">Nosotros</a></li>
+                <li><a href="#contactUs" class="dark:hover:text-slate-400 hover:text-red-700">Contacto</a></li>
+              </ul>
+            </div>
+            <div class="w-full md:w-1/4 mb-6 md:mb-0 text-left text-black dark:text-white transition duration-700 ease-in-out">
+              <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+              <p class="mb-2">Email: anunciat.inc@gmail.com</p>
+              <p class="mb-2">Teléfono: (+593) 0999-880-121</p>
+              <p class="">Ubicaciòn: Ecuador - Quito</p>
+            </div>
+            <div class="w-full md:w-1/4 transition duration-700 ease-in-out">
+              <h3 class="text-lg font-semibold mb-4 text-left text-black dark:text-white transition duration-700 ease-in-out">Síguenos</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-700 ease-in-out">
+                    <img src="icons8-facebook (2).svg" alt="facebook-icon" class="w-7 dark:hidden">
+                    <img src="icons8-facebook (3).svg" alt="facebook-icon" class="w-7 hidden dark:block">
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <img src="icons8-instagram (2).svg" alt="instagram-icon" class="w-7 dark:hidden">
+                    <img src="icons8-instagram (3).svg" alt="instagram-icon" class="w-7 hidden dark:block">
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <img src="icons8-twitterx (2).svg" alt="twitter-icon" class="w-7 dark:hidden">
+                    <img src="icons8-twitterx (3).svg" alt="twitter-icon" class="w-7 hidden dark:block">
+                </a>
+              </div>
+            </div>
+          </div>
+        <div class="pb-1 text-black dark:text-white transition duration-700 ease-in-out pt-5">&copy; {currentYear} Anuncia-t. Todos los derechos reservados</div>
+        <!--<div class="flex justify-center pt-4">
+        <a href="">
+            <img src="icons8-facebook (2).svg" alt="facebook-icon" class="w-8 mx-2 dark:hidden">
                 <img src="icons8-facebook (3).svg" alt="facebook-icon" class="w-8 mx-2 hidden dark:block">
             </a>
             <a href="">
@@ -22,7 +65,8 @@
                 <img src="icons8-youtube (2).svg" alt="youtube-icon" class="w-8 mx-2 dark:hidden">
                 <img src="icons8-youtube (3).svg" alt="youtube-icon" class="w-8 mx-2 hidden dark:block">
             </a>
-        </div>
+        </div>-->
+        
     </div>
 </footer>
 
